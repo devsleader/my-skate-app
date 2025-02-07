@@ -1,0 +1,77 @@
+'use client'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Box, Typography, Container, Grid, Button } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+const StyledButton = styled(Button)(({ theme }) => ({
+    backgroundColor: '#000',
+    color: 'white',
+    borderRadius: '50px',
+    padding: '10px 32px',
+    '&:hover': {
+      backgroundColor: '#222',
+    },
+  }));
+  
+const CTASection = () => {
+  return (
+    <Box 
+      sx={{
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/api/placeholder/1920/600")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '60vh',
+        display: 'flex',
+        alignItems: 'center'
+      }}
+    >
+      <Container maxWidth="lg">
+        <Grid container>
+          <Grid item xs={12} md={6}></Grid>
+          <Grid item xs={12} md={6}>
+            <Box 
+              sx={{ 
+                bgcolor: '#9ACD32',
+                p: 6,
+                borderRadius: 4
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <Typography 
+                  variant="h2" 
+                  sx={{ 
+                    fontWeight: 'bold',
+                    mb: 2,
+                    color: '#000',
+                    lineHeight: 1.2
+                  }}
+                >
+                  Let's fun with<br />our class!!
+                </Typography>
+                <Typography 
+                  sx={{ 
+                    mb: 4,
+                    color: '#000'
+                  }}
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </Typography>
+                <StyledButton variant="contained">
+                  Join Us
+                </StyledButton>
+              </motion.div>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
+  );
+};
+
+export default CTASection;

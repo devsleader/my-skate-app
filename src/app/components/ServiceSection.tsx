@@ -1,0 +1,84 @@
+'use client'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Button, Typography, Grid, Container } from '@mui/material';
+
+const ServiceCard: React.FC<{ Icon: string; title: string; isGreen?: boolean }> = ({ Icon, title }) => {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className={`p-6 rounded-3xl ${isHovered ? 'bg-[#9FE12C]' : 'bg-[#1A1F25]'} transition-all hover:translate-y-[-8px]`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="w-full aspect-square flex items-center justify-center mb-6">
+        <img src={Icon} alt={title} className="object-contain" />
+      </div>
+      <h3 className={`text-xl font-bold mb-3 ${isHovered ? 'text-black' : 'text-white'}`}>
+        {title}
+      </h3>
+      <p className={`text-sm ${isHovered ? 'text-black/80' : 'text-white/60'}`}>
+        Lorem ipsum dolor sit amet consectetur.
+      </p>
+    </motion.div>
+  );
+};
+
+const ServiceSection = () => (
+  <Container className="pt-20 pb-32 relative">
+   
+      <div className="flex justify-between items-center mb-16">
+        <div className="flex gap-2">
+          <Typography variant="h2" className="text-4xl font-bold text-white">
+            MAIN
+          </Typography>
+          <Typography variant="h2" className="text-4xl font-bold text-[#9FE12C]">
+            SERVICE
+          </Typography>
+        </div>
+        <Button
+          variant="outlined"
+          color="success"
+          className="px-8 py-3 text-sm font-semibold rounded-full"
+          onMouseOver={() => { /* Add hover effect if needed */ }}
+        >
+          SEE ALL
+        </Button>
+      </div>
+
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6} lg={3}>
+          <ServiceCard
+            Icon="/Icon1.png"
+            title="SKATE LEASSON"
+          />
+        </Grid>
+        <Grid item xs={12} md={6} lg={3}>
+          <ServiceCard
+            Icon="/Icon2.png"
+            title="SKATE PARK RENTAL"
+          />
+        </Grid>
+        <Grid item xs={12} md={6} lg={3}>
+          <ServiceCard
+            Icon="/Icon3.png"
+            title="BIG SKATE SHOP"
+          />
+        </Grid>
+        <Grid item xs={12} md={6} lg={3}>
+          <ServiceCard
+            Icon="/Icon4.png"
+            title="SKATE COACHING"
+          />
+        </Grid>
+      </Grid>
+    
+    {/* Bottom diagonal cut */}
+    
+  </Container >
+);
+export default ServiceSection; 
