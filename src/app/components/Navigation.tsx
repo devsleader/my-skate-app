@@ -2,14 +2,30 @@
 // components/Header/Navigation.tsx
 import React, { useState, useEffect } from 'react';
 import { Container, IconButton, Drawer, List, ListItem } from '@mui/material';
-import { Menu as MenuIcon } from '@mui/icons-material';
+import { Menu as MenuIcon, KeyboardArrowDown } from '@mui/icons-material';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
-const navItems = ['Home', 'About', 'Service', 'Pricing', 'Pages', 'Contact'];
+const navItems = [
+  { name: 'Home', link: '/' },
+  { name: 'About', link: '/about' },
+  { name: 'Service', link: '/service' },
+  { name: 'Pricing', link: '/pricing' },
+  { name: 'Pages', link: '#', subItems: [
+    { name: 'Team', link: '/team' },
+    { name: 'FAQ', link: '/faq' },
+    { name: '404', link: '/404' },
+    { name: 'News', link: '/news' },
+    { name: 'Coming Soon', link: '/comingsoon' }
+  ]},
+  { name: 'Contact', link: '/contact' }
+];
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [pagesOpen, setPagesOpen] = useState(false);
+  const pathname = usePathname();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -55,15 +71,56 @@ const Navigation = () => {
         {/* Desktop Navigation */}
         <div className={`hidden md:inline items-center space-x-8 ${mobileOpen ? 'hidden' : ''}`}>
           {navItems.map((item) => (
-            <motion.a
-              key={item}
-              href="#"
-              className="text-white hover:text-[#9FE870] transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {item}
-            </motion.a>
+            <div key={item.name} className="relative inline-block">
+              <motion.a
+                href={item.link}
+                className={`text-white hover:text-[#9FE870] transition-colors cursor-pointer inline-flex items-center ${
+                  pathname === item.link || 
+                  (item.subItems && item.subItems.some(subItem => pathname === subItem.link))
+                    ? 'text-[#9FE870]'
+                    : ''
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={(e) => {
+                  if (item.subItems) {
+                    e.preventDefault();
+                    setPagesOpen(!pagesOpen);
+                  }
+                }}
+              >
+                {item.name}
+                {item.subItems && (
+                  <KeyboardArrowDown 
+                    className={`ml-1 transition-transform ${pagesOpen ? 'rotate-180' : ''}`}
+                  />
+                )}
+              </motion.a>
+              
+              {/* Dropdown Menu */}
+              {item.subItems && pagesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute left-0 mt-2 w-48 bg-[#0f2000] rounded-lg shadow-lg py-2 z-50"
+                >
+                  {item.subItems.map((subItem) => (
+                    <motion.a
+                      key={subItem.name}
+                      href={subItem.link}
+                      className={`block px-4 py-2 hover:text-[#9FE870] hover:bg-[#1a3600] transition-colors ${
+                        pathname === subItem.link ? 'text-[#9FE870]' : 'text-white'
+                      }`}
+                      whileHover={{ x: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {subItem.name}
+                    </motion.a>
+                  ))}
+                </motion.div>
+              )}
+            </div>
           ))}
         </div>
 
@@ -90,15 +147,51 @@ const Navigation = () => {
         >
           <List className="pt-16">
             {navItems.map((item) => (
-              <ListItem key={item}>
-                <motion.a
-                  href="#"
-                  className="text-white hover:text-[#9FE870] transition-colors w-full py-2"
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item}
-                </motion.a>
-              </ListItem>
+              <React.Fragment key={item.name}>
+                <ListItem>
+                  <motion.a
+                    href={item.link}
+                    className={`text-white hover:text-[#9FE870] transition-colors w-full py-2 inline-flex items-center ${
+                      pathname === item.link || 
+                      (item.subItems && item.subItems.some(subItem => pathname === subItem.link))
+                        ? 'text-[#9FE870]'
+                        : ''
+                    }`}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={(e) => {
+                      if (item.subItems) {
+                        e.preventDefault();
+                        setPagesOpen(!pagesOpen);
+                      }
+                    }}
+                  >
+                    {item.name}
+                    {item.subItems && (
+                      <KeyboardArrowDown 
+                        className={`ml-1 transition-transform ${pagesOpen ? 'rotate-180' : ''}`}
+                      />
+                    )}
+                  </motion.a>
+                </ListItem>
+                {/* Mobile Dropdown */}
+                {item.subItems && pagesOpen && (
+                  <List className="pl-4">
+                    {item.subItems.map((subItem) => (
+                      <ListItem key={subItem.name}>
+                        <motion.a
+                          href={subItem.link}
+                          className={`hover:text-[#9FE870] transition-colors w-full py-1 ${
+                            pathname === subItem.link ? 'text-[#9FE870]' : 'text-white'
+                          }`}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          {subItem.name}
+                        </motion.a>
+                      </ListItem>
+                    ))}
+                  </List>
+                )}
+              </React.Fragment>
             ))}
             <ListItem>
               <motion.button

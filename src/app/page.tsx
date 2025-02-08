@@ -12,7 +12,9 @@ import LogoCarousel from "./components/LogoCarousel";
 import SkateboardServices from "./components/SkateboardServices";
 import PricingCardSection from "./components/PricingCardSection";
 import ServicesCardSection from "./components/ServicesCardSection";
-
+import ContactSection from "./components/ContactSection";
+import FAQSection from "./components/FAQSection";
+import BlogGrid from "./components/BlogGrid";
 
 export default function Home() {
   return (
@@ -30,6 +32,9 @@ export default function Home() {
       <SkateboardServices />
       <PricingCardSection />
       <ServicesCardSection />
+      <ContactSection />
+      <FAQSection />
+      <BlogGrid />
     </>
   );
 }
