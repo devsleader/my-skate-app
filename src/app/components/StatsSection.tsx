@@ -59,7 +59,7 @@ const StatsSection = () => {
   ];
 
   return (
-    <Box sx={{ bgcolor: '#0A0A0A', py: 8 }}>
+    <Box sx={{ bgcolor: '#333232', py: 8 }}>
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           {stats.map((stat, index) => (

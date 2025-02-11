@@ -21,9 +21,9 @@ const CTASection = () => {
         backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/api/placeholder/1920/600")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        minHeight: '60vh',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop:'4rem'
       }}
     >
       <Container maxWidth="lg">
@@ -34,7 +34,7 @@ const CTASection = () => {
               sx={{ 
                 bgcolor: '#9ACD32',
                 p: 6,
-                borderRadius: 4
+                borderRadius: '100px 100px 0 0',
               }}
             >
               <motion.div
@@ -49,14 +49,14 @@ const CTASection = () => {
                     fontWeight: 'bold',
                     mb: 2,
                     color: '#000',
-                    lineHeight: 1.2
+                    lineHeight: 1
                   }}
                 >
                   Let's fun with<br />our class!!
                 </Typography>
                 <Typography 
                   sx={{ 
-                    mb: 4,
+                    mb: 2,
                     color: '#000'
                   }}
                 >

@@ -1,18 +1,21 @@
 'use client'
 import React from 'react';
-import { Box }  from '@mui/material';
+import { Box, Container }  from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 
 
 const LogoCarousel = () => {
-    const logos = ['/logo1.png', '/logo2.png', '/logo3.png', '/logo4.png'];
+    const logos = ['/Logo-Brand1.png', '/Logo-Brand2.png', '/Logo-Brand3.png', '/Logo-Brand4.png'];
   
     return (
+      <Container>
       <Box sx={{ 
-        backgroundColor: 'background.default', 
-        py: 4 
+        py: 4,
+        my:4,
+        borderTop: '2px solid #9ACD32',
+        borderBottom: '2px solid #9ACD32',
       }}>
         <Swiper
           modules={[Autoplay]}
@@ -47,6 +50,7 @@ const LogoCarousel = () => {
           ))}
         </Swiper>
       </Box>
+      </Container>
     );
   };
 

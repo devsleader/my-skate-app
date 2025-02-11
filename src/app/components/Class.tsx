@@ -6,9 +6,20 @@ import {
   Container,
   Typography,
   Button,
+  styled,
 } from '@mui/material';
 import Image from 'next/image';
 
+const StyledButton = styled(Button)({
+  backgroundColor: '#C5E853',
+  color: '#000000',
+  borderRadius: '50px',
+  padding: '8px 24px',
+  textTransform: 'none',
+  '&:hover': {
+    backgroundColor: '#b5d748',
+  },
+});
 
 const Class = () => {
   // Animation variants
@@ -71,12 +82,11 @@ const Class = () => {
             animate="animate"
             style={{ marginBottom: '2rem' }}
           >
-            <Button
-              variant="contained"
+            <StyledButton
               size="large"
             >
               Join us
-            </Button>
+            </StyledButton>
           </motion.div>
 
           {/* Image */}
@@ -86,7 +96,6 @@ const Class = () => {
             animate="animate"
             style={{
               width: '100%',
-              maxWidth: '1000px',
               position: 'relative',
               backgroundImage: 'url("/Ornament.png")',
               backgroundSize: 'contain',

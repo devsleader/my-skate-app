@@ -4,14 +4,9 @@ import { motion } from 'framer-motion';
 import { Box, Typography, Container, Grid, Button, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Skateboarding } from '@mui/icons-material';
+import StatCard from './StatCard';
 
-// Styled components
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#1A1A1A',
-  padding: theme.spacing(2),
-  borderRadius: theme.spacing(2),
-  color: 'white',
-}));
+
 
 const IconWrapper = styled(Box)(({ theme }) => ({
   width: 48,
@@ -49,28 +44,16 @@ const AboutSection = () => {
           whileInView="animate"
           viewport={{ once: true }}
         >
-          {/* Header Section */}
-          <motion.div {...fadeInUp}>
-            <Typography variant="h2" align="center" sx={{ mb: 2, fontWeight: 'bold' }}>
-              ABOUT US
-            </Typography>
-            <Typography 
-              align="center" 
-              sx={{ color: '#9ACD32', mb: 8 }}
-            >
-              We provide innovative solution for your hobby needs.
-            </Typography>
-          </motion.div>
-
-          <Grid container spacing={6}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 6 }}>
             {/* Left Column */}
-            <Grid item xs={12} md={6}>
+            <Box sx={{ flex: 1 }}>
               <motion.div {...fadeInLeft}>
                 <Typography variant="h3" sx={{ 
                   fontWeight: 'bold', 
                   mb: 4,
                   textTransform: 'uppercase',
-                  lineHeight: 1.2
+                  lineHeight: 1.2,
+                  color: '#9ACD32'
                 }}>
                   professional<br />
                   skateboard<br />
@@ -84,11 +67,11 @@ const AboutSection = () => {
               {/* Vision Section */}
               <motion.div {...fadeInUp}>
                 <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
-                  <IconWrapper sx={{ border: '1px solid white' }}>
+                  <IconWrapper sx={{ border: '1px solid white', width: '54px' }}>
                     <Skateboarding />
                   </IconWrapper>
                   <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color:'#9ACD32' }}>
                       Our Vision
                     </Typography>
                     <Typography sx={{ color: 'grey.500' }}>
@@ -101,11 +84,11 @@ const AboutSection = () => {
               {/* Mission Section */}
               <motion.div {...fadeInUp}>
                 <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
-                  <IconWrapper sx={{ bgcolor: '#9ACD32' }}>
+                  <IconWrapper sx={{ bgcolor: '#9ACD32',  width: '54px' }}>
                     <Skateboarding />
                   </IconWrapper>
                   <Box>
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1, color:'#9ACD32' }}>
                       Our Mission
                     </Typography>
                     <Typography sx={{ color: 'grey.500' }}>
@@ -132,18 +115,26 @@ const AboutSection = () => {
                   See our service
                 </Button>
               </motion.div>
-            </Grid>
+            </Box>
 
             {/* Right Column */}
-            <Grid item xs={12} md={6}>
-              <Box sx={{ position: 'relative' }}>
+            <Box sx={{ flex: 1 }} >
+              <Box sx={{ 
+                position: 'relative',
+                backgroundImage: 'url("/Frame-About-top.png")',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition:'center',
+                backgroundSize:'contain',
+                px: 4  // Adding padding to ensure content doesn't touch the edges
+              }}>
                 <motion.div {...fadeInUp}>
                   <Box 
                     component="img"
                     src="/Smiling-boy-with-red-headphones.png"
                     alt="Skateboarder"
                     sx={{
-                      width: '100%',
+                      width: '70%',
+                      margin: 'auto',
                       height: 'auto',
                       borderRadius: 4
                     }}
@@ -152,57 +143,36 @@ const AboutSection = () => {
 
                 {/* Experience Counter */}
                 <motion.div {...fadeInRight}>
-                  <StyledPaper 
-                    sx={{ 
-                      position: 'absolute',
-                      top: 32,
-                      right: -16
-                    }}
-                  >
-                    <Typography variant="h4" sx={{ color: '#9ACD32', fontWeight: 'bold' }}>
-                      27+
-                    </Typography>
-                    <Typography variant="body2">
-                      Year Experience
-                    </Typography>
-                  </StyledPaper>
+                      <StatCard 
+                        count="199+" 
+                        label="Happy Customer"
+                        className="absolute bottom-[25%] right-[-30px]"
+                      />
                 </motion.div>
 
                 {/* Student Counter */}
                 <motion.div {...fadeInLeft}>
-                  <StyledPaper 
-                    sx={{ 
-                      position: 'absolute',
-                      bottom: '33%',
-                      left: -16
-                    }}
-                  >
-                    <Typography variant="h4" sx={{ color: '#9ACD32', fontWeight: 'bold' }}>
-                      100+
-                    </Typography>
-                    <Typography variant="body2">
-                      Active Student
-                    </Typography>
-                  </StyledPaper>
+                 <StatCard 
+                  count="100+" 
+                  label="Active Student"
+                  className="absolute bottom-[55%] left-[-50px]"
+                />
                 </motion.div>
 
                 {/* Bottom Text */}
                 <motion.div 
                   {...fadeInUp}
-                  style={{
-                    padding: '32px'
-                  }}
                 >
-                  <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2 }}>
+                  <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2, color:'#9ACD32' }}>
                     LEARN FROM<br />THE EXPERT
                   </Typography>
-                  <Typography sx={{ color: 'grey.500' }}>
+                  <Typography sx={{ color: 'grey.500', paddingBottom:'10px' }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec.
                   </Typography>
                 </motion.div>
               </Box>
-            </Grid>
-          </Grid>
+            </Box>
+          </Box>
         </motion.div>
       </Container>
     </Box>

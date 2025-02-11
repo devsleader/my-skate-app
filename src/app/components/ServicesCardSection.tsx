@@ -7,7 +7,8 @@ import {
   Card, 
   CardContent, 
   Button, 
-  Grid 
+  Grid, 
+  Container
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
@@ -34,39 +35,41 @@ const servicesData = [
 ];
 
 const StyledCard = styled(Card)(({ theme }) => ({
-  backgroundColor: '#1a1a1a',
+  backgroundColor: 'transparent',
   color: theme.palette.common.white,
   borderRadius: theme.spacing(3),
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
   transition: 'transform 0.3s ease-in-out',
-  border: `1px solid ${theme.palette.primary.main}`,
+  border: '1px solid #2E2E2E',
+  boxShadow: '0 0 20px rgba(157, 255, 32, 0.1)',
   '&:hover': {
     transform: 'scale(1.05)',
+    border: '1px solid #9DFF20',
   },
 }));
 
 const IconWrapper = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.primary.main,
+  backgroundColor: '#6C19FF',
   borderRadius: '50%',
-  width: 80,
-  height: 80,
+  width: 70,
+  height: 70,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  marginBottom: theme.spacing(2),
+  marginBottom: theme.spacing(3),
   '& svg': {
-    color: 'white',
-    fontSize: 40,
+    color: '#9DFF20',
+    fontSize: 32,
   }
 }));
 
 const ServicesCardSection: React.FC = () => {
   return (
+    <Container>
     <Box 
       sx={{ 
-        backgroundColor: 'black', 
         py: 8, 
         px: 4 
       }}
@@ -108,17 +111,25 @@ const ServicesCardSection: React.FC = () => {
                   
                   <Typography 
                     variant="h5" 
-                    color="lime.main" 
-                    gutterBottom
-                    sx={{ textTransform: 'uppercase' }}
+                    sx={{ 
+                      textTransform: 'uppercase',
+                      color: '#9DFF20',
+                      fontWeight: 'bold',
+                      mb: 2,
+                      letterSpacing: '0.5px'
+                    }}
                   >
                     {service.title}
                   </Typography>
                   
                   <Typography 
-                    variant="body2" 
-                    color="grey.500" 
-                    sx={{ mb: 2, flexGrow: 1 }}
+                    variant="body1" 
+                    sx={{ 
+                      mb: 3, 
+                      flexGrow: 1,
+                      color: '#999999',
+                      lineHeight: 1.6
+                    }}
                   >
                     {service.description}
                   </Typography>
@@ -129,18 +140,18 @@ const ServicesCardSection: React.FC = () => {
                   >
                     <Button
                       variant="contained"
-                      color="success"
                       sx={{ 
-                        py: 1,
-                        px: 3,
-                        backgroundColor: 'lime.main',
-                        color: 'black',
+                        py: 1.5,
+                        px: 4,
+                        backgroundColor: '#9DFF20',
+                        color: '#000000',
+                        fontWeight: 'bold',
                         '&:hover': {
-                          backgroundColor: 'lime.dark',
+                          backgroundColor: '#8BE81C',
                         }
                       }}
                     >
-                      Learn More
+                      LEARN MORE
                     </Button>
                   </motion.div>
                 </CardContent>
@@ -150,6 +161,7 @@ const ServicesCardSection: React.FC = () => {
         ))}
       </Grid>
     </Box>
+    </Container>
   );
 };
 

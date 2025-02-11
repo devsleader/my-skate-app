@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Box, Container } from '@mui/material';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -26,21 +26,47 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="min-h-screen bg-[#0A0A0A] flex items-center justify-center py-16 px-4">
-      <div className="container mx-auto grid lg:grid-cols-2 gap-8 items-center">
+    <Container>
+    <Box 
+      component="section" 
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        py: 16,
+        px: 4
+      }}
+    >
+      <Box sx={{
+        container: 'true',
+        mx: 'auto',
+        display: 'grid',
+        alignItems: 'center',
+        gridTemplateColumns: { lg: 'repeat(2, 1fr)' }
+      }}>
         {/* Left Section */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-[#9CD323] rounded-3xl p-8 relative overflow-hidden"
+          style={{
+            backgroundImage: 'url(/Frame-Pricing-2.png)',
+            backgroundSize:'80% 100%',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition:'center'
+          }}
         >
-          <div className="relative z-10">
+          <Box sx={{ position: 'relative', zIndex: 10, width:'80%', paddingX: '20px', margin:'auto', paddingBottom:'10px',
+             backgroundImage: 'url(/Ellipse-1.png)',
+             backgroundRepeat: 'no-repeat',
+             backgroundPosition: 'center',
+             backgroundSize: 'contain'
+           }}>
             <motion.img
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              src="/skater-girl.png"
+              src="/girl.png"
               alt="Skater Girl"
               className="mx-auto w-72 hover:scale-105 transition-transform duration-300"
             />
@@ -60,7 +86,7 @@ const ContactSection = () => {
             >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec.
             </motion.p>
-          </div>
+          </Box>
         </motion.div>
 
         {/* Right Section */}
@@ -68,20 +94,37 @@ const ContactSection = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-[#0A0A0A] p-8 rounded-3xl"
+          style={{
+            backgroundColor: '#0A0A0A',
+            padding: '2rem',
+            borderRadius: '24px'
+          }}
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
+            style={{ marginBottom: '1rem' }}
           >
-            <h3 className="text-4xl font-bold text-white mb-2">HOW CAN WE HELP?</h3>
-            <p className="text-gray-400">Feel free to ask a question or simply leave a comment</p>
+            <Box component="h3" sx={{
+              fontSize: '2.25rem',
+              fontWeight: 'bold',
+              color: 'white',
+              mb: 2
+            }}>
+              HOW CAN WE HELP?
+            </Box>
+            <Box component="p" sx={{ color: 'grey.400' }}>
+              Feel free to ask a question or simply leave a comment
+            </Box>
           </motion.div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          <Box component="form" onSubmit={handleSubmit} sx={{ '& > *': { mb: 2 } }}>
+            <Box sx={{
+              display: 'grid',
+              gridTemplateColumns: { md: 'repeat(2, 1fr)' },
+              gap: 2
+            }}>
               <TextField
                 name="firstName"
                 placeholder="First Name"
@@ -108,9 +151,13 @@ const ContactSection = () => {
                   }
                 }}
               />
-            </div>
+            </Box>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <Box sx={{
+              display: 'grid',
+              gridTemplateColumns: { md: 'repeat(2, 1fr)' },
+              gap: 2
+            }}>
               <TextField
                 name="email"
                 type="email"
@@ -138,7 +185,7 @@ const ContactSection = () => {
                   }
                 }}
               />
-            </div>
+            </Box>
 
             <TextField
               name="message"
@@ -163,15 +210,26 @@ const ContactSection = () => {
               <Button
                 type="submit"
                 variant="contained"
-                className="bg-[#9CD323] hover:bg-[#8BB81F] text-black font-bold py-3 px-8 rounded-full"
+                sx={{
+                  backgroundColor: '#9CD323',
+                  color: 'black',
+                  fontWeight: 'bold',
+                  padding: '12px 32px',
+                  marginTop:'1rem',
+                  borderRadius: '9999px',
+                  '&:hover': {
+                    backgroundColor: '#8BB81F'
+                  }
+                }}
               >
                 CLICK HERE
               </Button>
             </motion.div>
-          </form>
+          </Box>
         </motion.div>
-      </div>
-    </section>
+      </Box>
+    </Box>
+    </Container>
   );
 };
 

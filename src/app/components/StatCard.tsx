@@ -13,7 +13,7 @@ interface StatCardProps {
 const StatCard: React.FC<StatCardProps> = ({ count, label, className }) => {
   return (
     <motion.div
-      className={`bg-[#1F2937] p-4 rounded-lg ${className}`}
+      className={`bg-[#B8E14429] p-2 border-[1px] border-white rounded-lg ${className}`}
       whileHover={{ scale: 1.05 }}
     >
       <Typography variant="h4" className="text-[#9FE870]">

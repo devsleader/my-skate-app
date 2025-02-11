@@ -25,6 +25,7 @@ const StyledAccordion = styled(Accordion)(({ theme }) => ({
   },
   '&.Mui-expanded': {
     margin: '0 0 16px 0',
+    backgroundColor: '',
   },
 }));
 
@@ -36,16 +37,21 @@ const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
   },
   '& .MuiAccordionSummary-expandIconWrapper': {
     color: '#000000',
+    transform: 'rotate(180deg)',
+    '&.Mui-expanded': {
+      transform: 'rotate(0deg)',
+    },
   },
 }));
 
 const StyledAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
-  padding: '0 24px 24px 24px',
-  color: '#000000',
+  padding: '24px',
+  color: '#ffffff',
+  backgroundColor: '#040d17',
 }));
 
 const FAQSection = () => {
-  const [expanded, setExpanded] = useState<string | false>('panel1');
+  const [expanded, setExpanded] = useState<string | false>(false);
 
   const handleChange = (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
     setExpanded(newExpanded ? panel : false);
@@ -70,7 +76,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <Box sx={{ bgcolor: '#0A0A0A', py: 8 }}>
+    <Box sx={{ py: 8 }}>
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           {/* Left Column - Title */}

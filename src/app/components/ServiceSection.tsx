@@ -32,19 +32,33 @@ const ServiceSection = () => (
   <Container className="pt-20 pb-32 relative">
    
       <div className="flex justify-between items-center mb-16">
-        <div className="flex gap-2">
-          <Typography variant="h2" className="text-4xl font-bold text-white">
+        <div> 
+         <Typography variant="h2" className="text-4xl font-bold text-white">
             MAIN
           </Typography>
+          
           <Typography variant="h2" className="text-4xl font-bold text-[#9FE12C]">
             SERVICE
           </Typography>
-        </div>
+         </div>
+         <hr className='w-[60%] border-[#9FE12C]' />
         <Button
-          variant="outlined"
-          color="success"
-          className="px-8 py-3 text-sm font-semibold rounded-full"
-          onMouseOver={() => { /* Add hover effect if needed */ }}
+          sx={{
+            px: 4,
+            py: 1.5,
+            fontSize: '0.875rem',
+            fontWeight: 500,
+            borderRadius: '9999px',
+            border: 1,
+            borderColor: '#9FE12C',
+            color: '#9FE12C',
+            '&:hover': {
+              backgroundColor: '#9FE12C',
+              color: 'black',
+              borderColor: '#9FE12C',
+            },
+            transition: 'all 0.3s',
+          }}
         >
           SEE ALL
         </Button>

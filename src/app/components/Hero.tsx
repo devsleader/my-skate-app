@@ -7,7 +7,7 @@ import StatCard from './StatCard';
 
 const Hero = () => {
   return (
-    <section className="w-full bg-[#0A0F16] min-h-screen pt-20 pb-12"
+    <section className="w-full bg-[#0A0F16] min-h-screen pt-20 pb-4"
     style={{ backgroundImage: 'url(/group-16.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
     >
       <Container className="grid md:grid-cols-2 gap-12">
@@ -44,10 +44,11 @@ const Hero = () => {
           <Typography className="text-gray-300 mb-8">
             Lorem ipsum dolor sit amet consectetur. Commodo egestas condimentum morbi maecenas. Non et enim egestas in justo.
           </Typography>
+          <hr className='w-[10%] mt-4 border-t-4 border-[#9FE870]' />
           
           <div 
             className="relative mt-12" 
-            style={{ backgroundImage: 'url(/group-14.png)', backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
+            style={{ backgroundImage: 'url(/group-14.png)',backgroundSize: '100% auto', backgroundPosition: '47px 77px', backgroundRepeat: 'no-repeat' }}
           >
             <motion.img
               src="/skater.png"
@@ -66,13 +67,13 @@ const Hero = () => {
             <StatCard 
               count="100+" 
               label="Active Student"
-              className="absolute bottom-1/4 left-0"
+              className="absolute bottom-[45%] left-[-50px]"
             />
             
             <StatCard 
               count="199+" 
               label="Happy Customer"
-              className="absolute bottom-0 right-0"
+              className="absolute bottom-[32%] right-[80px]"
             />
           </div>
         </motion.div>

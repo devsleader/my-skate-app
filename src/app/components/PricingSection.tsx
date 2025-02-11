@@ -7,15 +7,23 @@ const PricingSection = () => (
     <div className='bg-[#f5fae7] relative'>
         <div className="absolute top-[-1px] left-0 right-0 h-[16rem] bg-[#040d17]" style={{clipPath: 'polygon(0% 0%, 100% 0%, 100% 0%, 0% 100%)'}} />
     <Container className="pt-16 pb-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2" style={{clipPath: 'polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%)'}}>
+        <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Youth Coaching Card */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-[#9FE12C] rounded-[2rem] p-8 relative overflow-hidden w-[85%]"
-          >
-            <div className="grid grid-cols-2 gap-4">
+            className="p-8 relative z-10" style={{
+              backgroundImage: 'url(/Frame-Pricing-2.png)', 
+              backgroundSize: '80% 100%',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center center'
+            }}
+          > 
+          <div className='w-[80%] mx-auto'>
+            <div className='my-12'>
+            </div>
+            <div className="flex">
               <div style={{ 
                 backgroundImage: 'url(/Ellipse.png)', 
                 backgroundSize: 'contain', 
@@ -55,6 +63,7 @@ const PricingSection = () => (
                 </button>
               </div>
             </div>
+            </div>
           </motion.div>
   
           {/* Right Column */}
@@ -64,18 +73,20 @@ const PricingSection = () => (
             viewport={{ once: true }}
             className="flex flex-col justify-between"
           >
-            <div className='ms-12'>
-              <h2 className="text-6xl font-bold text-white mb-4">Our<br/>Pricing</h2>
-              <p className="text-white/60 mb-6">Lorem ipsum dolor sit amet, consectetuer.</p>
+            <div className='ms-8 pt-32'>
+              <h2 className="text-6xl font-bold text-[#040D17] mb-4">Our<br/>Pricing</h2>
+            <p className="text-[#040D17] mb-6">Lorem ipsum dolor sit amet, consectetuer.</p>
               <button className="px-8 py-3 bg-[#9FE12C] text-black rounded-full hover:bg-[#9FE12C]/90 transition-all text-sm font-semibold">
                 Book Now
               </button>
             </div>
   
-            <div className="mt-12  p-20 relative" style={{ 
+          </motion.div>
+        </div>
+        <div className=" mt-[-25%] py-32 relative z-1" style={{ 
                 backgroundImage: 'url(/Frame-Pricing-1.png)', 
-                backgroundSize: 'cover', 
-                backgroundPosition: 'center', 
+                backgroundSize: '80% 100%',
+                backgroundPosition: 'center right', 
                 backgroundRepeat: 'no-repeat'
               }}>
               <img 
@@ -84,9 +95,9 @@ const PricingSection = () => (
                 className="absolute right-0 top-[-13rem] w-40 h-auto"
               />
               
-              <div className="relative z-10">
+              <div className="relative w-[30%] ms-[50%]">
                 <h3 className="text-3xl font-bold text-white mb-4">Adult Coaching</h3>
-                <p className="text-white/60 mb-8 max-w-[70%]">
+                <p className="text-white/60 mb-8 ">
                   Lorem ipsum dolor sit amet consectetur. Viverra sodales facilisi lectus iaculis.
                 </p>
   
@@ -100,8 +111,6 @@ const PricingSection = () => (
                 </div>
               </div>
             </div>
-          </motion.div>
-        </div>
     </Container>
     </div>
   );

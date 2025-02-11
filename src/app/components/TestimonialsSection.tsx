@@ -8,18 +8,17 @@ import { styled } from '@mui/material/styles';
 
 
 // Custom styled components
-const StyledCard = styled(Card)<{ variant: 'dark' | 'light' }>(({ theme, variant }) => ({
-  borderRadius: '25%',
-  padding: '2rem',
+const StyledCard = styled(Card)(({ variant }: { variant: 'dark' | 'light' }) => ({
+  padding: '3rem',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   textAlign: 'center',
   width: '100%',
   height: '100%',
-  // aspectRatio: '1/1',
   backgroundColor: variant === 'dark' ? '#1A1B1E' : '#C5E853',
   boxShadow: 'none',
+  borderRadius: '99999px',
 }));
 
 const StyledButton = styled(Button)({
@@ -53,10 +52,11 @@ const Testimonial: React.FC<TestimonialProps> = ({
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
+      className="rounded-full"
     >
       <StyledCard variant={variant}>
         <Box
-          className="w-[18rem] h-[18rem] rounded-xl mb-6"
+          className="w-[16rem] h-[16rem] rounded-xl mb-6"
           component="div"
         >
           <img src={imageSrc} alt={name} className="w-full h-full object-cover" />
@@ -96,49 +96,58 @@ const Testimonial: React.FC<TestimonialProps> = ({
 
 const TestimonialsSection: React.FC = () => {
   return (
-    <Container>
-    <Box 
-      component="section" 
-      className="bg-[#F8F8F1] px-8 py-12 md:px-16 md:py-24  rounded-[25%] min-h-screen"
-    >
-      <Box className="max-w-6xl mx-auto">
-        <Box className="flex justify-between items-start mb-12">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Typography variant="h1" style={{ fontSize: '4rem', marginBottom: '2rem' }}>
-              OUR CUSTOMER
-              <br />
-              FEEDBACKS
-            </Typography>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <StyledButton>
-                SEE ALL
-              </StyledButton>
+    <Container className="!p-0">
+      <Box 
+        component="section" 
+        className="bg-[#F8F8F1] px-8 py-12 md:px-16 md:py-24 rounded-[25%] min-h-screen"
+        sx={{ margin: 0 }}
+      >
+        <Box className="px-12">
+          <Box className="flex justify-between items-start mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Typography 
+                variant="h1" 
+                sx={{ 
+                  fontSize: { xs: '3rem', md: '4rem' }, 
+                  marginBottom: '2rem',
+                  fontWeight: 'bold',
+                  color: 'black'
+                }}
+              >
+                OUR CUSTOMER
+                <br />
+                FEEDBACKS
+              </Typography>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <StyledButton>
+                  SEE ALL
+                </StyledButton>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </Box>
-        
-        <Box className="grid md:grid-cols-2 gap-8">
-          <Testimonial
-            name="JENNY WILSON"
-            role="Freelancer"
-            comment="I stumbled upon this skate website while searching for new skateboard gear, and I couldn't be happier with the experience."
-            imageSrc="/A-teenage-boy-carrying-skateboard.png"
-            variant="dark"
-          />
-          <Testimonial
-            name="INDRA MULIANA"
-            role="Student"
-            comment="This skateboard course agency are fun, and friendly, I'm very glad to have opportunity to join this skateboard course, Thank you!"
-            imageSrc="/Young-female-skateboarder.png"
-            variant="light"
-          />
+          </Box>
+          
+          <Box className="grid md:grid-cols-2 gap-8">
+            <Testimonial
+              name="JENNY WILSON"
+              role="Freelancer"
+              comment="I stumbled upon this skate website while searching for new skateboard gear, and I couldn't be happier with the experience."
+              imageSrc="/A-teenage-boy-carrying-skateboard.png"
+              variant="dark"
+            />
+            <Testimonial
+              name="INDRA MULIANA"
+              role="Student"
+              comment="This skateboard course agency are fun, and friendly, I'm very glad to have opportunity to join this skateboard course, Thank you!"
+              imageSrc="/Young-female-skateboarder.png"
+              variant="light"
+            />
+          </Box>
         </Box>
       </Box>
-    </Box>
     </Container>
   );
 };
