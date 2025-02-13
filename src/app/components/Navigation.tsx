@@ -2,7 +2,7 @@
 // components/Header/Navigation.tsx
 import React, { useState, useEffect } from 'react';
 import { Container, IconButton, Drawer, List, ListItem } from '@mui/material';
-import { Menu as MenuIcon, KeyboardArrowDown } from '@mui/icons-material';
+import { Menu as MenuIcon, KeyboardArrowDown, Close } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
@@ -44,9 +44,9 @@ const Navigation = () => {
     <nav>
       <Container className="flex justify-between items-center bg-[#0f2000] py-4 rounded-xl">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -150 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.9 }}
         >
           <img 
             src="/Logo.png" 
@@ -100,9 +100,9 @@ const Navigation = () => {
               {/* Dropdown Menu */}
               {item.subItems && pagesOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
+                  exit={{ opacity: 0, y: -20 }}
                   className="absolute left-0 mt-2 w-48 bg-[#0f2000] rounded-lg shadow-lg py-2 z-50"
                 >
                   {item.subItems.map((subItem) => (
@@ -142,9 +142,18 @@ const Navigation = () => {
             keepMounted: true,
           }}
           PaperProps={{
-            style: { backgroundColor: 'navy' },
+            style: { backgroundColor: '#0f2000' },
           }}
         >
+          {/* Close Button */}
+          <IconButton
+            color="inherit"
+            aria-label="close drawer"
+            onClick={handleDrawerToggle}
+            className="absolute top-4 right-4"
+          >
+            <Close />
+          </IconButton>
           <List className="pt-16">
             {navItems.map((item) => (
               <React.Fragment key={item.name}>

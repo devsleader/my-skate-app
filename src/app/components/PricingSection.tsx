@@ -10,9 +10,9 @@ const PricingSection = () => (
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Youth Coaching Card */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -150 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.9 }}
             className="p-8 relative z-10" style={{
               backgroundImage: 'url(/Frame-Pricing-2.png)', 
               backgroundSize: '80% 100%',
@@ -68,9 +68,9 @@ const PricingSection = () => (
   
           {/* Right Column */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 150 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.9 }}
             className="flex flex-col justify-between"
           >
             <div className='ms-8 pt-32'>
@@ -83,7 +83,11 @@ const PricingSection = () => (
   
           </motion.div>
         </div>
-        <div className=" mt-[-25%] py-32 relative z-1" style={{ 
+        <motion.div
+              initial={{ opacity: 0, y: 150 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9 }}
+        className=" mt-[-25%] py-32 relative z-1" style={{ 
                 backgroundImage: 'url(/Frame-Pricing-1.png)', 
                 backgroundSize: '80% 100%',
                 backgroundPosition: 'center right', 
@@ -101,7 +105,7 @@ const PricingSection = () => (
                   Lorem ipsum dolor sit amet consectetur. Viverra sodales facilisi lectus iaculis.
                 </p>
   
-                <div className="flex justify-between items-end">
+                <div className="flex flex-wrap justify-between items-end">
                   <div className="text-4xl font-bold text-white">
                     $200<br/>/Week
                   </div>
@@ -110,7 +114,7 @@ const PricingSection = () => (
                   </button>
                 </div>
               </div>
-            </div>
+        </motion.div>
     </Container>
     </div>
   );

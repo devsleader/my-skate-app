@@ -44,15 +44,15 @@ const Footer = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const fadeInUp = {
-    initial: { y: 60, opacity: 0 },
-    animate: { y: 0, opacity: 1, transition: { duration: 0.6 } }
+    initial: { y: 90, opacity: 0 },
+    animate: { y: 0, opacity: 1, transition: { duration: 0.9 } }
   };
 
   const quickLinks = ['About', 'Service', 'Pricing', 'Blog', 'Contact'];
   const supportLinks = ['Privacy Policy', 'Term & Condition', 'Disclaimer', 'Support', 'FAQ'];
 
   return (
-    <Box component="footer" sx={{ bgcolor: '#0A0A0A', py: 8 }}>
+    <Box component="footer" sx={{ py: 8 }}>
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           {/* Logo and Description Section */}
@@ -60,7 +60,7 @@ const Footer = () => {
             <motion.div variants={fadeInUp} initial="initial" whileInView="animate" viewport={{ once: true }}>
               <Box sx={{ mb: 3 }}>
                 <Image
-                  src="/logo.png"
+                  src="/Logo-Footer.png"
                   alt="Skate Course"
                   width={200}
                   height={64}

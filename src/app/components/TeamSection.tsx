@@ -1,10 +1,9 @@
 'use client'
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Box, Typography, Container, Grid, Button, Paper } from '@mui/material';
+import { Box, Typography, Container, Button} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Skateboarding } from '@mui/icons-material';
-import StatCard from './StatCard';
 
 
 
@@ -17,7 +16,7 @@ const IconWrapper = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-const AboutSection = () => {
+const TeamSection = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -30,11 +29,7 @@ const AboutSection = () => {
     transition: { duration: 0.6 }
   };
 
-  const fadeInRight = {
-    initial: { opacity: 0, x: 60 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6 }
-  };
+ 
 
   return (
     <Box sx={{  color: 'white', py: 8 }}>
@@ -44,9 +39,34 @@ const AboutSection = () => {
           whileInView="animate"
           viewport={{ once: true }}
         >
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 6 }}>
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2
+         }}>
             {/* Left Column */}
-            <Box sx={{ flex: 1 }}>
+            <Box sx={{ flex: 0.45 }} >
+              <Box sx={{ 
+                backgroundImage: 'url("/Frame-Pricing-2.png")',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition:'center',
+                backgroundSize:'contain',
+              }}>
+                <motion.div {...fadeInUp}>
+                  <Box 
+                    component="img"
+                    src="/Cheerful-young-man-with-skateboard.png"
+                    alt="Skateboarder"
+                    sx={{
+                      width: '80%',
+                      margin: 'auto',
+                      height: 'auto',
+                      borderRadius: 4
+                    }}
+                  />
+                </motion.div>
+              </Box>
+            </Box>
+
+            {/* Right Column */}
+            <Box sx={{ flex: 0.55 }}>
               <motion.div {...fadeInLeft}>
                 <Typography variant="h3" sx={{ 
                   fontWeight: 'bold', 
@@ -116,62 +136,6 @@ const AboutSection = () => {
                 </Button>
               </motion.div>
             </Box>
-
-            {/* Right Column */}
-            <Box sx={{ flex: 1 }} >
-              <Box sx={{ 
-                position: 'relative',
-                backgroundImage: 'url("/Frame-About-top.png")',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition:'center',
-                backgroundSize:'contain',
-                px: 4  // Adding padding to ensure content doesn't touch the edges
-              }}>
-                <motion.div {...fadeInUp}>
-                  <Box 
-                    component="img"
-                    src="/Smiling-boy-with-red-headphones.png"
-                    alt="Skateboarder"
-                    sx={{
-                      width: '70%',
-                      margin: 'auto',
-                      height: 'auto',
-                      borderRadius: 4
-                    }}
-                  />
-                </motion.div>
-
-                {/* Experience Counter */}
-                <motion.div {...fadeInRight}>
-                      <StatCard 
-                        count="199+" 
-                        label="Happy Customer"
-                        className="absolute bottom-[25%] right-[-30px]"
-                      />
-                </motion.div>
-
-                {/* Student Counter */}
-                <motion.div {...fadeInLeft}>
-                 <StatCard 
-                  count="100+" 
-                  label="Active Student"
-                  className="absolute bottom-[55%] left-[-50px]"
-                />
-                </motion.div>
-
-                {/* Bottom Text */}
-                <motion.div 
-                  {...fadeInUp}
-                >
-                  <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 2, color:'#9ACD32' }}>
-                    LEARN FROM<br />THE EXPERT
-                  </Typography>
-                  <Typography sx={{ color: 'grey.500', paddingBottom:'10px' }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec.
-                  </Typography>
-                </motion.div>
-              </Box>
-            </Box>
           </Box>
         </motion.div>
       </Container>
@@ -179,4 +143,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default TeamSection;

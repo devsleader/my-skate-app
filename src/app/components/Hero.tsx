@@ -7,15 +7,15 @@ import StatCard from './StatCard';
 
 const Hero = () => {
   return (
-    <section className="w-full bg-[#0A0F16] min-h-screen pt-20 pb-4"
+    <section className="w-full bg-[#0A0F16] pt-20 pb-4"
     style={{ backgroundImage: 'url(/group-16.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
     >
       <Container className="grid md:grid-cols-2 gap-12">
         {/* Left Column */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 150 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.9 }}
           className="space-y-8"
         >
           <Typography 
@@ -37,9 +37,9 @@ const Hero = () => {
         {/* Right Column */}
         <motion.div
           className="relative"
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 150 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.9 }}
         >
           <Typography className="text-gray-300 mb-8">
             Lorem ipsum dolor sit amet consectetur. Commodo egestas condimentum morbi maecenas. Non et enim egestas in justo.

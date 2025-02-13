@@ -18,9 +18,6 @@ const CTASection = () => {
   return (
     <Box 
       sx={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/api/placeholder/1920/600")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
         display: 'flex',
         alignItems: 'center',
         paddingTop:'4rem'

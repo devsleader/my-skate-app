@@ -1,3 +1,4 @@
+import BlogGrid from "../components/BlogGrid";
 import PageHeader from "../components/PageHeader";
 
 export default function News() {
@@ -7,6 +8,7 @@ export default function News() {
           title="News" 
           subtitle="Latest news and updates" 
         />
+        <BlogGrid />
       </>
     );
 }

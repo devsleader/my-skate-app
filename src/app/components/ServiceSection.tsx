@@ -8,8 +8,9 @@ const ServiceCard: React.FC<{ Icon: string; title: string; isGreen?: boolean }> 
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 120 }}
       whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9 }}
       viewport={{ once: true }}
       className={`p-6 rounded-3xl ${isHovered ? 'bg-[#9FE12C]' : 'bg-[#1A1F25]'} transition-all hover:translate-y-[-8px]`}
       onMouseEnter={() => setIsHovered(true)}

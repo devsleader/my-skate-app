@@ -1,4 +1,6 @@
 import PageHeader from "../components/PageHeader";
+import TeamMembers from "../components/TeamMembers";
+import TeamSection from "../components/TeamSection";
 
 export default function Team() {
     return (
@@ -7,6 +9,8 @@ export default function Team() {
           title="Team" 
           subtitle="Meet the team" 
         />
+        <TeamSection />
+        <TeamMembers />
       </>
     );
 }

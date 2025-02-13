@@ -16,7 +16,7 @@ const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
   };
 
   return (
-    <Box sx={{ bgcolor: '#0A0A0A', color: 'white', py: 8 }}>
+    <Box sx={{  color: 'white', py: 8 }}>
       <Container maxWidth="lg">
           {/* Header Section */}
           <motion.div {...fadeInUp}>
@@ -25,7 +25,7 @@ const PageHeader = ({ title, subtitle }: PageHeaderProps) => {
             </Typography>
             <Typography 
               align="center" 
-              sx={{ color: '#9ACD32', mb: 8 }}
+              sx={{ color: '#9ACD32' }}
             >
               {subtitle}
             </Typography>

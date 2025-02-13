@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles';
 
 
 // Custom styled components
-const StyledCard = styled(Card)(({ variant }: { variant: 'dark' | 'light' }) => ({
+const StyledCard = styled(Card)<{ variant: 'dark' | 'light' }>(({ variant }) => ({
   padding: '3rem',
   display: 'flex',
   flexDirection: 'column',
@@ -52,11 +52,12 @@ const Testimonial: React.FC<TestimonialProps> = ({
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="rounded-full"
+      className="rounded-xl"
     >
       <StyledCard variant={variant}>
+        
         <Box
-          className="w-[16rem] h-[16rem] rounded-xl mb-6"
+          className="w-full h-full rounded-xl mb-6"
           component="div"
         >
           <img src={imageSrc} alt={name} className="w-full h-full object-cover" />
@@ -89,6 +90,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
         >
           {role}
         </Typography>
+        
       </StyledCard>
     </motion.div>
   );
@@ -131,20 +133,22 @@ const TestimonialsSection: React.FC = () => {
           </Box>
           
           <Box className="grid md:grid-cols-2 gap-8">
-            <Testimonial
-              name="JENNY WILSON"
-              role="Freelancer"
-              comment="I stumbled upon this skate website while searching for new skateboard gear, and I couldn't be happier with the experience."
-              imageSrc="/A-teenage-boy-carrying-skateboard.png"
-              variant="dark"
-            />
-            <Testimonial
-              name="INDRA MULIANA"
-              role="Student"
-              comment="This skateboard course agency are fun, and friendly, I'm very glad to have opportunity to join this skateboard course, Thank you!"
-              imageSrc="/Young-female-skateboarder.png"
-              variant="light"
-            />
+            <>
+              <Testimonial
+                name="JENNY WILSON"
+                role="Freelancer"
+                comment="I stumbled upon this skate website while searching for new skateboard gear, and I couldn't be happier with the experience."
+                imageSrc="/A-teenage-boy-carrying-skateboard.png"
+                variant="dark"
+              />
+              <Testimonial
+                name="INDRA MULIANA"
+                role="Student"
+                comment="This skateboard course agency are fun, and friendly, I'm very glad to have opportunity to join this skateboard course, Thank you!"
+                imageSrc="/Young-female-skateboarder.png"
+                variant="light"
+              />
+            </>
           </Box>
         </Box>
       </Box>

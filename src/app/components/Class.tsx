@@ -35,7 +35,6 @@ const Class = () => {
   return (
     <Box
       sx={{
-        bgcolor: '#0A0A0A',
         position: 'relative',
         overflow: 'hidden',
         pt: { xs: 8, md: 12 },
