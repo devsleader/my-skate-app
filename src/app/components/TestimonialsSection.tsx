@@ -77,8 +77,10 @@ const TestimonialsSection: React.FC = () => {
                 <Box
                   className="w-full h-full rounded-xl mb-6"
                   component="div"
+                  sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 >
-                  <Image src="/A-teenage-boy-carrying-skateboard.png" alt="JENNY WILSON" layout="fill" className="object-cover" />
+                  <Image src="/A-teenage-boy-carrying-skateboard.png" alt="JENNY WILSON" 
+                  width={200} height={200} />
                 </Box>
                 <Typography
                   variant="h3"
@@ -130,8 +132,10 @@ const TestimonialsSection: React.FC = () => {
                 <Box
                   className="w-full h-full rounded-xl mb-6"
                   component="div"
+                  sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                 >
-                  <Image src="/Young-female-skateboarder.png" alt="INDRA MULIANA" layout="fill" className="object-cover" />
+                  <Image src="/Young-female-skateboarder.png" alt="INDRA MULIANA"
+                  width={200} height={200} />
                 </Box>
                 <Typography
                   variant="h3"
