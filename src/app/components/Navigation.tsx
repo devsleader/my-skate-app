@@ -27,7 +27,7 @@ const Navigation = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [pagesOpen, setPagesOpen] = useState(false);
   const pathname = usePathname();
-  // const [currentTime, setCurrentTime] = useState<number | null>(null);
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -59,8 +59,8 @@ const Navigation = () => {
             src="/Logo.png" 
             alt="Skate Course Logo" 
             className="h-12"
-            width={48}
-            height={48}
+            width={120}
+            height={50}
           />
         </motion.div>
 
