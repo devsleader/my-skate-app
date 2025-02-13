@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import 'swiper/css';
+import Image from 'next/image';
 
 const services = [
   {
@@ -80,8 +81,7 @@ const SkateboardServices = () => {
                     mb: 2,
                   }}
                 >
-                  <img src={service.icon} alt="logo" className='rounded-full' />
-                  
+                  <Image src={service.icon} alt="logo" className='rounded-full' width={100} height={100} />
                 </IconButton>
                 <CardContent>
                   <Typography 

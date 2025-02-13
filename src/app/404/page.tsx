@@ -1,19 +1,16 @@
 import { Container } from "@mui/material";
-import PageHeader from "../components/PageHeader";
 import Link from "next/link";
+import Image from "next/image";
 
-export default function Page404() {
+const Page = () => {
     return (
       <>
-        {/* <PageHeader 
-          title="404" 
-          subtitle="Page not found" 
-        /> */}
+        
         <Container className="pt-12">
         <div className="flex">
-        <img className="w-[33%]" src="/4.png" alt="" />
-        <img className="w-[33%]" src="/Protective-Helmet-1.png" alt="" />
-        <img className="w-[33%]" src="/4.png" alt="" />
+        <Image className="w-[33%]" src="/4.png" alt="" width={500} height={500} />
+        <Image className="w-[33%]" src="/Protective-Helmet-1.png" alt="" width={500} height={500} />
+        <Image className="w-[33%]" src="/4.png" alt="" width={500} height={500} />
         </div>
         </Container>
         
@@ -33,3 +30,4 @@ export default function Page404() {
       </>
     );
 }
+export default Page;

@@ -70,7 +70,7 @@ const Class = () => {
                 textTransform: 'uppercase',
               }}
             >
-              Let's fun with<br />our class!!
+              Let&apos;s fun with<br />our class!!
             </Typography>
           </motion.div>
 

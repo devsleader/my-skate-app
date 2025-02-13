@@ -1,14 +1,14 @@
 'use client'
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Box, Typography, Container, Grid, Button, Paper } from '@mui/material';
+import { Box, Typography, Container, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Skateboarding } from '@mui/icons-material';
 import StatCard from './StatCard';
 
 
 
-const IconWrapper = styled(Box)(({ theme }) => ({
+const IconWrapper = styled(Box)(() => ({
   width: 48,
   height: 48,
   borderRadius: '50%',

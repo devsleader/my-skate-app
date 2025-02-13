@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Box, Typography, Container } from '@mui/material';
+import Image from 'next/image';
 
 // Define the props type for FeatureCard
 interface FeatureCardProps {
@@ -21,7 +22,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, var
     }`}
   >
     <Box>
-      <img  className="rounded-full" src={icon} alt={title} />
+      <Image className="rounded-full" src={icon} alt={title} width={150} height={150} />
     </Box>
     <Box>
       <Typography variant="h4" className={`mb-4 ${

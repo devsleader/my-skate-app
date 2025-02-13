@@ -4,6 +4,7 @@ import { Box, Container }  from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import Image from 'next/image';
 
 
 const LogoCarousel = () => {
@@ -36,14 +37,16 @@ const LogoCarousel = () => {
                   alignItems: 'center' 
                 }}
               >
-                <img 
+                <Image
                   src={logo} 
                   alt={`Logo ${index + 1}`} 
                   style={{ 
                     maxHeight: '50px', 
                     filter: 'grayscale(100%)',
-                    transition: 'filter 0.3s ease'
+                    transition: 'filter 0.3s ease',
                   }}
+                  width={120}
+                  height={120}
                 />
               </Box>
             </SwiperSlide>

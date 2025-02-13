@@ -7,7 +7,7 @@ import { Skateboarding } from '@mui/icons-material';
 
 
 
-const IconWrapper = styled(Box)(({ theme }) => ({
+const IconWrapper = styled(Box)(() => ({
   width: 48,
   height: 48,
   borderRadius: '50%',

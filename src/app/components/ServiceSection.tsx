@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button, Typography, Grid, Container } from '@mui/material';
+import Image from 'next/image';
 
 const ServiceCard: React.FC<{ Icon: string; title: string; isGreen?: boolean }> = ({ Icon, title }) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -17,7 +18,7 @@ const ServiceCard: React.FC<{ Icon: string; title: string; isGreen?: boolean }> 
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="w-full aspect-square flex items-center justify-center mb-6">
-        <img src={Icon} alt={title} className="object-contain" />
+        <Image src={Icon} alt={title} width={300} height={300} />
       </div>
       <h3 className={`text-xl font-bold mb-3 ${isHovered ? 'text-black' : 'text-white'}`}>
         {title}

@@ -20,7 +20,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import Image from 'next/image';
 
 // Custom styled components
-const StyledIconButton = styled(IconButton)(({ theme }) => ({
+const StyledIconButton = styled(IconButton)(() => ({
   backgroundColor: '#C3F53C',
   color: '#000000',
   '&:hover': {

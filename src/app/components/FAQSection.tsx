@@ -14,7 +14,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { motion } from 'framer-motion';
 
 // Styled components
-const StyledAccordion = styled(Accordion)(({ theme }) => ({
+const StyledAccordion = styled(Accordion)(() => ({
   backgroundColor: '#9CD323',
   borderRadius: '30px !important',
   marginBottom: '16px',
@@ -29,7 +29,7 @@ const StyledAccordion = styled(Accordion)(({ theme }) => ({
   },
 }));
 
-const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
+const StyledAccordionSummary = styled(AccordionSummary)(() => ({
   borderRadius: 30,
   padding: '8px 24px',
   '& .MuiAccordionSummary-content': {
@@ -44,7 +44,7 @@ const StyledAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
   },
 }));
 
-const StyledAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
+const StyledAccordionDetails = styled(AccordionDetails)(() => ({
   padding: '24px',
   color: '#ffffff',
   backgroundColor: '#040d17',

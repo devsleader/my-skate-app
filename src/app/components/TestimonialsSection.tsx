@@ -4,22 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button, Card, Typography, Box, Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
-
-
-
-// Custom styled components
-const StyledCard = styled(Card)<{ variant: 'dark' | 'light' }>(({ variant }) => ({
-  padding: '3rem',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  textAlign: 'center',
-  width: '100%',
-  height: '100%',
-  backgroundColor: variant === 'dark' ? '#1A1B1E' : '#C5E853',
-  boxShadow: 'none',
-  borderRadius: '99999px',
-}));
+import Image from 'next/image';
 
 const StyledButton = styled(Button)({
   backgroundColor: '#C5E853',
@@ -31,70 +16,6 @@ const StyledButton = styled(Button)({
     backgroundColor: '#b5d748',
   },
 });
-
-interface TestimonialProps {
-  name: string;
-  role: string;
-  comment: string;
-  imageSrc: string;
-  variant: 'dark' | 'light';
-}
-
-const Testimonial: React.FC<TestimonialProps> = ({
-  name,
-  role,
-  comment,
-  imageSrc,
-  variant
-}) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="rounded-xl"
-    >
-      <StyledCard variant={variant}>
-        
-        <Box
-          className="w-full h-full rounded-xl mb-6"
-          component="div"
-        >
-          <img src={imageSrc} alt={name} className="w-full h-full object-cover" />
-        </Box>
-        <Typography
-          variant="h3"
-          className={`text-2xl font-black mb-4 ${
-            variant === 'dark' ? 'text-white' : 'text-black'
-          }`}
-        >
-          {variant === 'dark' ? 'BEST SKATEBOARD COURSE!' : 'SKATE COACH ARE FRIENDLY 🙂'}
-        </Typography>
-        <Typography
-          variant="body1"
-          className={`mb-6 ${variant === 'dark' ? 'text-white/90' : 'text-black/90'}`}
-        >
-          {comment}
-        </Typography>
-        <Typography
-          variant="h6"
-          className={`font-bold mb-1 ${
-            variant === 'dark' ? 'text-white' : 'text-black'
-          }`}
-        >
-          {name}
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          className={`${variant === 'dark' ? 'text-white/75' : 'text-black/75'}`}
-        >
-          {role}
-        </Typography>
-        
-      </StyledCard>
-    </motion.div>
-  );
-};
 
 const TestimonialsSection: React.FC = () => {
   return (
@@ -133,22 +54,111 @@ const TestimonialsSection: React.FC = () => {
           </Box>
           
           <Box className="grid md:grid-cols-2 gap-8">
-            <>
-              <Testimonial
-                name="JENNY WILSON"
-                role="Freelancer"
-                comment="I stumbled upon this skate website while searching for new skateboard gear, and I couldn't be happier with the experience."
-                imageSrc="/A-teenage-boy-carrying-skateboard.png"
-                variant="dark"
-              />
-              <Testimonial
-                name="INDRA MULIANA"
-                role="Student"
-                comment="This skateboard course agency are fun, and friendly, I'm very glad to have opportunity to join this skateboard course, Thank you!"
-                imageSrc="/Young-female-skateboarder.png"
-                variant="light"
-              />
-            </>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-xl"
+            >
+              <Card
+                sx={{
+                  padding: '3rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: '#1A1B1E',
+                  boxShadow: 'none',
+                  borderRadius: '99999px',
+                }}
+              >
+                <Box
+                  className="w-full h-full rounded-xl mb-6"
+                  component="div"
+                >
+                  <Image src="/A-teenage-boy-carrying-skateboard.png" alt="JENNY WILSON" layout="fill" className="object-cover" />
+                </Box>
+                <Typography
+                  variant="h3"
+                  className={`text-2xl font-black mb-4 text-white`}
+                >
+                  BEST SKATEBOARD COURSE!
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className={`mb-6 text-white/90`}
+                >
+                  I stumbled upon this skate website while searching for new skateboard gear, and I couldn&apos;t be happier with the experience.
+                </Typography>
+                <Typography
+                  variant="h6"
+                  className={`font-bold mb-1 text-white`}
+                >
+                  JENNY WILSON
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  className={`text-white/75`}
+                >
+                  Freelancer
+                </Typography>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-xl"
+            >
+              <Card
+                sx={{
+                  padding: '3rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: '#C5E853',
+                  boxShadow: 'none',
+                  borderRadius: '99999px',
+                }}
+              >
+                <Box
+                  className="w-full h-full rounded-xl mb-6"
+                  component="div"
+                >
+                  <Image src="/Young-female-skateboarder.png" alt="INDRA MULIANA" layout="fill" className="object-cover" />
+                </Box>
+                <Typography
+                  variant="h3"
+                  className={`text-2xl font-black mb-4 text-black`}
+                >
+                  SKATE COACH ARE FRIENDLY &nbsp;🙂
+                </Typography>
+                <Typography
+                  variant="body1"
+                  className={`mb-6 text-black/90`}
+                >
+                  This skateboard course agency are fun, and friendly, I&apos;m very glad to have opportunity to join this skateboard course, Thank you!
+                </Typography>
+                <Typography
+                  variant="h6"
+                  className={`font-bold mb-1 text-black`}
+                >
+                  INDRA MULIANA
+                </Typography>
+                <Typography
+                  variant="subtitle1"
+                  className={`text-black/75`}
+                >
+                  Student
+                </Typography>
+              </Card>
+            </motion.div>
           </Box>
         </Box>
       </Box>

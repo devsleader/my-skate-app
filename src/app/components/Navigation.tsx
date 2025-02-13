@@ -5,6 +5,7 @@ import { Container, IconButton, Drawer, List, ListItem } from '@mui/material';
 import { Menu as MenuIcon, KeyboardArrowDown, Close } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 const navItems = [
   { name: 'Home', link: '/' },
@@ -23,9 +24,10 @@ const navItems = [
 
 const Navigation = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
   const [pagesOpen, setPagesOpen] = useState(false);
   const pathname = usePathname();
+  // const [currentTime, setCurrentTime] = useState<number | null>(null);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -36,8 +38,13 @@ const Navigation = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    setPagesOpen(false);
   }, []);
 
   return (
@@ -48,10 +55,12 @@ const Navigation = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9 }}
         >
-          <img 
+          <Image 
             src="/Logo.png" 
             alt="Skate Course Logo" 
             className="h-12"
+            width={48}
+            height={48}
           />
         </motion.div>
 

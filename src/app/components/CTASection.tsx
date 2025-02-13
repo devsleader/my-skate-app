@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Box, Typography, Container, Grid, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const StyledButton = styled(Button)(({ theme }) => ({
+const StyledButton = styled(Button)(() => ({
     backgroundColor: '#000',
     color: 'white',
     borderRadius: '50px',
@@ -49,7 +49,7 @@ const CTASection = () => {
                     lineHeight: 1
                   }}
                 >
-                  Let's fun with<br />our class!!
+                  Let&apos;s fun with<br />our class!!
                 </Typography>
                 <Typography 
                   sx={{ 

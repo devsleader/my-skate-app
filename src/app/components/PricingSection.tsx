@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Container } from '@mui/material';
+import Image from 'next/image';
 
 const PricingSection = () => (
     <div className='bg-[#f5fae7] relative'>
@@ -30,10 +31,12 @@ const PricingSection = () => (
                 backgroundPosition: 'center', 
                 backgroundRepeat: 'no-repeat'
               }}>
-                <img 
+                <Image 
                   src="/boy.png" 
                   alt="Boy with skateboard"
                   className="w-full h-full object-cover"
+                  width={200}
+                  height={200}
                 />
               </div>
               <div style={{ 
@@ -42,10 +45,12 @@ const PricingSection = () => (
                 backgroundPosition: 'center', 
                 backgroundRepeat: 'no-repeat'
               }}>
-                <img 
+                <Image 
                   src="/girl.png" 
                   alt="Girl with skateboard"
                   className="w-full h-full object-cover"
+                  width={200}
+                  height={200}
                 />
               </div>
             </div>
@@ -93,10 +98,12 @@ const PricingSection = () => (
                 backgroundPosition: 'center right', 
                 backgroundRepeat: 'no-repeat'
               }}>
-              <img 
+              <Image 
                 src="/Young-skateboarder-at-skate-park-indoor-1.png" 
                 alt="Skater doing trick"
                 className="absolute right-0 top-[-13rem] w-40 h-auto"
+                width={160}
+                height={160}
               />
               
               <div className="relative w-[30%] ms-[50%]">

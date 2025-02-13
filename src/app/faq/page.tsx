@@ -1,5 +1,5 @@
 import PageHeader from "../components/PageHeader";
-import FAQ2Section from "../team/FAQ2Section";
+import FAQ2Section from "../components/FAQ2Section";
 import ServicesCardSection from "../components/ServicesCardSection";
 
 export default function FAQ() {

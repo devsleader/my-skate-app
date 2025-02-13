@@ -1,11 +1,11 @@
 'use client'
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Box, Typography, Container, Grid, Button } from '@mui/material';
+import { Box, Typography, Container, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 // Styled components
-const CounterBox = styled(Box)(({ theme }) => ({
+const CounterBox = styled(Box)(() => ({
   textAlign: 'center',
   color: 'white',
 }));

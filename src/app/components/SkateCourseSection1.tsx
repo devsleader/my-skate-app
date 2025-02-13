@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Box, Typography, Container, Button } from '@mui/material';
+import Image from 'next/image';
 
 
 
@@ -11,9 +12,11 @@ interface InstructorCardProps {
   description: string;
   imageSrc: string;
   className?: string;
+  width?: number;
+  height?: number;
 }
 
-const InstructorCard: React.FC<InstructorCardProps> = ({ name, description, imageSrc, className }) => (
+const InstructorCard: React.FC<InstructorCardProps> = ({ name, description, imageSrc, className, width, height }) => (
   <motion.div
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -21,7 +24,7 @@ const InstructorCard: React.FC<InstructorCardProps> = ({ name, description, imag
     className="text-center"
   >
     <Box className="relative">
-      <img src={imageSrc} alt={name} className={`m-auto ${className || 'w-full'}`} />
+      <Image src={imageSrc} alt={name} width={width} height={height} className={`m-auto ${className || 'w-full'}`} />
     </Box>
     <Typography variant="h3" className="text-2xl font-black mt-4 text-[#C5E853]">
       {name}
@@ -83,16 +86,22 @@ const SkateCourseSection1 = () => {
               description="Lorem ipsum dolor sit amet consectetur. Volutpat odio tellus neque arcu"
               imageSrc="/Cheerful-young-man-with-skateboard.png"
               className="w-[80%]"
+              width={500}
+              height={300}
             />
             <InstructorCard
               name="ROBERT GIBSON"
               description="Lorem ipsum dolor sit amet consectetur. Volutpat odio tellus neque arcu"
               imageSrc="/Enjoy-all-the-benefits-of-an-Envato-Elements-subscription.png"
+              width={500}
+              height={300}
             />
             <InstructorCard
               name="INDRA SCOOPE"
               description="Lorem ipsum dolor sit amet consectetur. Volutpat odio tellus neque arcu"
               imageSrc="/Young-skateboarder-at-skate-park-indoor.png"
+              width={500}
+              height={300}
             />
           </Box>
       </Container>
